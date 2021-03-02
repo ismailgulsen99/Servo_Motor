@@ -1,32 +1,24 @@
-# Prerequisites
-*.d
+#include <Servo.h>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+Servo servo_Motor;
 
-# Precompiled Headers
-*.gch
-*.pch
+void setup()
+{
+  servo_Motor.attach(3);
+  
+}
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+void loop()
+{
+  for(int i=0; i<=180; i+=15)
+  {
+    servo_Motor.write(i);
+    delay(500);
+  }
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+  for(int j=180; j>=30; j-=30)
+  {
+    servo_Motor.write(j);
+    delay(500);
+  }
+}
